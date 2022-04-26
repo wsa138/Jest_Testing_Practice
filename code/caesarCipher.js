@@ -45,8 +45,9 @@ function capStr(mainStr, shiftedStr) {
   let capIndexArr = [];
   let capStr = '';
   for (let i = 0; i < mainStr.length; i++) {
-    if (mainStr[i].toUpperCase() === mainStr[i]) {
-      capIndexArr.push(mainStr.indexOf(mainStr[i]));
+    if (/[a-z]/i.test(mainStr[i]) && mainStr[i].toUpperCase() === mainStr[i]) {
+      // FIX: Pushing first instance of indexOf, instead of current index
+      capIndexArr.push(i);
     }
   }
   for (let i = 0; i < shiftedStr.length; i++) {
@@ -59,6 +60,6 @@ function capStr(mainStr, shiftedStr) {
   return capStr;
 }
 
-// caesarCipher('dc', 3);
+// caesarCipher('Test two! This is a test.', 13);
 
 export default caesarCipher;
