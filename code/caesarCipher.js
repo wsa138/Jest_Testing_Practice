@@ -11,20 +11,26 @@ function caesarCipher(str, shiftNum) {
 function createShiftIndexArr(str, shiftNum) {
   let shiftIndexArr = [];
   for (let i = 0; i < str.length; i++) {
-    let newIndexNum = alpha.indexOf(str[i].toLowerCase()) + shiftNum;
-    if (newIndexNum > 25) {
-      shiftIndexArr.push(newIndexNum - 26);
+    let newIndexNum = alpha.indexOf(str[i].toLowerCase());
+    // If newIndexNum is -1, add non letter character to array. Else continue.
+    if (newIndexNum === -1) {
+      shiftIndexArr.push(str[i]);
     } else {
-      shiftIndexArr.push(newIndexNum);
+      let indexNumShifted = newIndexNum + shiftNum;
+      if (indexNumShifted > 25) {
+        shiftIndexArr.push(indexNumShifted - 26);
+      } else {
+        shiftIndexArr.push(indexNumShifted);
+      }
     }
   }
   return shiftIndexArr;
 }
 
-// Create array of the shifted letters.
+// Create array of the shifted letters
 function createShiftedArr(indexArr) {
   let shiftedArr = indexArr.map((indexNum) => {
-    return alpha[indexNum];
+    return isNaN(indexNum) || indexNum === ' ' ? indexNum : alpha[indexNum];
   });
   return shiftedArr;
 }
@@ -52,5 +58,7 @@ function capStr(mainStr, shiftedStr) {
   }
   return capStr;
 }
+
+// caesarCipher('dc', 3);
 
 export default caesarCipher;
