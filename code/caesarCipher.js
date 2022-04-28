@@ -1,10 +1,22 @@
 let alpha = 'abcdefghijklmnopqrstuvwxyz';
 
 function caesarCipher(str, shiftNum) {
-  let shiftIndexArr = createShiftIndexArr(str, shiftNum);
+  let newShiftNum = checkShiftNumber(shiftNum);
+  let shiftIndexArr = createShiftIndexArr(str, newShiftNum);
   let shiftArr = createShiftedArr(shiftIndexArr);
   let shiftedStr = joinShiftedArr(shiftArr);
   return capStr(str, shiftedStr);
+}
+
+// Check is shift number is too large and decrease it by 26.
+function checkShiftNumber(shiftNum) {
+  let newShiftNum = shiftNum;
+  if (newShiftNum > 26) {
+    newShiftNum = checkShiftNumber(newShiftNum - 26);
+  } else {
+    return newShiftNum;
+  }
+  return newShiftNum;
 }
 
 // Create array of the shifted index numbers.
@@ -61,6 +73,6 @@ function capStr(mainStr, shiftedStr) {
   return capStr;
 }
 
-//caesarCipher('Test Number 52.', 5);
+//caesarCipher('Test', 105);
 
 export default caesarCipher;

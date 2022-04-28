@@ -23,4 +23,14 @@ test('Input of ("Test Number 52.", 5) returns "Yjxy Szrgjw 52."', () => {
   expect(caesarCipher('Test Number 52.', 5)).toBe('Yjxy Szrgjw 52.');
 });
 
-// Test for numbers larger than 26
+// Test for numbers larger than 25
+test('Input of ("Test", 53) returns "Uftu"', () => {
+  expect(caesarCipher('Test', 53)).toBe('Uftu');
+});
+
+// Tests values from every other test.
+test('Input of ("Test 2! This is a test.", 143) returns "Grfg 2! Guvf vf n grfg."', () => {
+  expect(caesarCipher('Test 2! This is a test.', 143)).toBe(
+    'Grfg 2! Guvf vf n grfg.'
+  );
+});
