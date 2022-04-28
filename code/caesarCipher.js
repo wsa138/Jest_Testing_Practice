@@ -30,7 +30,9 @@ function createShiftIndexArr(str, shiftNum) {
 // Create array of the shifted letters
 function createShiftedArr(indexArr) {
   let shiftedArr = indexArr.map((indexNum) => {
-    return isNaN(indexNum) || indexNum === ' ' ? indexNum : alpha[indexNum];
+    return isNaN(indexNum) || typeof indexNum === 'string' || indexNum === ' '
+      ? indexNum
+      : alpha[indexNum];
   });
   return shiftedArr;
 }
@@ -46,7 +48,6 @@ function capStr(mainStr, shiftedStr) {
   let capStr = '';
   for (let i = 0; i < mainStr.length; i++) {
     if (/[a-z]/i.test(mainStr[i]) && mainStr[i].toUpperCase() === mainStr[i]) {
-      // FIX: Pushing first instance of indexOf, instead of current index
       capIndexArr.push(i);
     }
   }
@@ -60,6 +61,6 @@ function capStr(mainStr, shiftedStr) {
   return capStr;
 }
 
-// caesarCipher('Test two! This is a test.', 13);
+//caesarCipher('Test Number 52.', 5);
 
 export default caesarCipher;

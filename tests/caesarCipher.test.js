@@ -18,6 +18,9 @@ test('Input of ("Test two! This is a test.", 13) returns "Grfg gjb! Guvf vf n gr
   );
 });
 
-/*
- */
-// Add more test for non-strings, and large numbers
+// Test for input string containing numbers.
+test('Input of ("Test Number 52.", 5) returns "Yjxy Szrgjw 52."', () => {
+  expect(caesarCipher('Test Number 52.', 5)).toBe('Yjxy Szrgjw 52.');
+});
+
+// Test for numbers larger than 26
