@@ -8,3 +8,11 @@ test('Input of [1,2,3,4,5] returns "3 ,1, 15, 5"', () => {
 test('Input of [43, 77, 77, 22] returns "54.75, 22, 77, 4"', () => {
   expect(caesarCipher([43, 77, 77, 22])).toBe('54.75, 22, 77, 4');
 });
+
+test('Input of [0, 0, 0, 0, 0, 0, 0] returns "0, 0, 0, 0, 0, 0, 0"', () => {
+  expect(caesarCipher([0, 0, 0, 0, 0, 0, 0])).toBe('0, 0, 0, 0, 0, 0, 0');
+});
+
+// Test input of string numbers
+
+// Test input of string values
