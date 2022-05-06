@@ -5,6 +5,7 @@ function analyzeArray(arr) {
   let minNum;
   let maxNum;
   let arrLength;
+  return averageNum;
 
   // Find the mininum
   // Find the maximum
@@ -13,10 +14,10 @@ function analyzeArray(arr) {
 
 // Find average
 function average(arr) {
-  let total = arr.reduce((previousValue, currentValue) => {
-    previousValue + currentValue, averageNum;
-  });
-  let averageNum = total / arr.length;
+  let total = arr.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+  }, 0);
+  return total / arr.length;
 }
 
 export default analyzeArray;
